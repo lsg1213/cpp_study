@@ -1,7 +1,8 @@
-#include <iostream>
+declare int n to print 20 0 30
+
+ #include <iostream>
 
 using namespace std;
-int n;
 void set() {
 	n = 10;
 }
@@ -10,11 +11,8 @@ namespace doodle {
 	void set() {
 		n = 20;
 	}
-	int n;
-
 	namespace google {
-		int n;
-		void set() {
+				void set() {
 			n = 30;
 		}
 	}

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
-// 1. classì˜ í•¨ìˆ˜ë“¤ê³¼ ìƒì„±ìë¥¼ ì“°ê¸° ìœ„í•´ í•´ì•¼í•˜ëŠ” í•œ ê°€ì§€ ì‘ì—…ì´ ìˆë‹¤. í•´ë‹¹ ì‘ì—…ì„ í•˜ì‹œì˜¤.
+// 1. classÀÇ ÇÔ¼öµé°ú »ı¼ºÀÚ¸¦ ¾²±â À§ÇØ ÇØ¾ßÇÏ´Â ÇÑ °¡Áö ÀÛ¾÷ÀÌ ÀÖ´Ù. ÇØ´ç ÀÛ¾÷À» ÇÏ½Ã¿À.
 class TV {
 	string company;
 	bool power;
@@ -29,35 +29,35 @@ class TV {
 		cout << "Channel is " << channel << " now" << endl;
 	}
 
-	// 2.íŒŒì›Œ on/off ì„¤ì •í•  ìˆ˜ ìˆëŠ” í•¨ìˆ˜ë¥¼ ë§Œë“œì‹œì˜¤(ì…ë ¥ _power; on/off)
+	// 2.ÆÄ¿ö on/off ¼³Á¤ÇÒ ¼ö ÀÖ´Â ÇÔ¼ö¸¦ ¸¸µå½Ã¿À(ÀÔ·Â _power; on/off)
 	void setPower(string _power) {
 	}
 
-	// 3.ë³¼ë¥¨ ì„¤ì •ì„ í•  ìˆ˜ ìˆëŠ” í•¨ìˆ˜ë¥¼ ë§Œë“œì‹œì˜¤(0~100ì´ ì•„ë‹ ê²½ìš°ì—ëŠ” false, 0~100ì¸ ê²½ìš° true return)
+	// 3.º¼·ı ¼³Á¤À» ÇÒ ¼ö ÀÖ´Â ÇÔ¼ö¸¦ ¸¸µå½Ã¿À(0~100ÀÌ ¾Æ´Ò °æ¿ì¿¡´Â false, 0~100ÀÎ °æ¿ì true return)
 	bool setVolume(int _volume) {
 	}
 
-	// 4.ì±„ë„ì„ ì„¤ì •í•  ìˆ˜ ìˆëŠ” í•¨ìˆ˜ë¥¼ ë§Œë“œì‹œì˜¤(0~1000ì´ ì•„ë‹ ê²½ìš°ì—ëŠ” ë™ì‘x, ì‘ì—…ì´ ì„±ê³µì ìœ¼ë¡œ ëë‚¬ì„ ê²½ìš° true return ì•„ë‹ˆë©´ false return)
+	// 4.Ã¤³ÎÀ» ¼³Á¤ÇÒ ¼ö ÀÖ´Â ÇÔ¼ö¸¦ ¸¸µå½Ã¿À(0~1000ÀÌ ¾Æ´Ò °æ¿ì¿¡´Â µ¿ÀÛx, ÀÛ¾÷ÀÌ ¼º°øÀûÀ¸·Î ³¡³µÀ» °æ¿ì true return ¾Æ´Ï¸é false return)
 	bool setChannel(int _channel) {
 	}
 };
 
 int main() {
 	string tvcompany;
-	cout << "tvëŠ” ì–´ëŠ íšŒì‚¬ ì œí’ˆì¸ê°€ìš”?" << endl;
+	cout << "tv´Â ¾î´À È¸»ç Á¦Ç°ÀÎ°¡¿ä?" << endl;
 	cin >> tvcompany;
 	TV tv(tvcompany);
 	while (true) {
 		string _power;
-		cout << "tvì˜ ì „ì›ì„ ì–´ë–»ê²Œ í•˜ì‹œê² ìŠµë‹ˆê¹Œ? (on/off)" << endl;
+		cout << "tvÀÇ Àü¿øÀ» ¾î¶»°Ô ÇÏ½Ã°Ú½À´Ï±î? (on/off)" << endl;
 		while (true) {
 			cin >> _power;
 			if (_power == "on" || _power == "off") break;
-			cout << "ì œëŒ€ë¡œ ë˜ì§€ ì•Šì€ ì…ë ¥ì…ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”(on/off)." << endl;
+			cout << "Á¦´ë·Î µÇÁö ¾ÊÀº ÀÔ·ÂÀÔ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä(on/off)." << endl;
 		}
 		tv.setPower(_power);
 
-		cout << "Volume í¬ê¸°ë¥¼ ì„¤ì •í•˜ì‹œì˜¤(0~100)" << endl;
+		cout << "Volume Å©±â¸¦ ¼³Á¤ÇÏ½Ã¿À(0~100)" << endl;
 		int _volume;
 		cin >> _volume;
 		if (cin.fail()) {
@@ -66,7 +66,7 @@ int main() {
 		while (!tv.setVolume(_volume)) {
 			cin.clear();
 			cin.ignore(256, '\n');
-			cout << "Volume í¬ê¸°ë¥¼ 0~100 ì‚¬ì´ë¡œ ì„¤ì •í•˜ì„¸ìš”." << endl;
+			cout << "Volume Å©±â¸¦ 0~100 »çÀÌ·Î ¼³Á¤ÇÏ¼¼¿ä." << endl;
 			cout << "Volmume(0~100): ";
 			cin >> _volume;
 			if (cin.fail()) {
@@ -74,7 +74,7 @@ int main() {
 			}
 		}
 
-		cout << "Channelì„ ì„¤ì •í•˜ì‹œì˜¤(0~1000)" << endl;
+		cout << "ChannelÀ» ¼³Á¤ÇÏ½Ã¿À(0~1000)" << endl;
 		int _channel;
 		cin >> _channel;
 		if (cin.fail()) {
@@ -83,7 +83,7 @@ int main() {
 		while (!tv.setChannel(_channel)) {
 			cin.clear();
 			cin.ignore(256, '\n');
-			cout << "Channelì„ 0~1000 ì‚¬ì´ë¡œ ì„¤ì •í•˜ì„¸ìš”." << endl;
+			cout << "ChannelÀ» 0~1000 »çÀÌ·Î ¼³Á¤ÇÏ¼¼¿ä." << endl;
 			cout << "Channel(0~1000): ";
 			cin >> _channel;
 			if (cin.fail()) {
@@ -92,13 +92,13 @@ int main() {
 		}
 
 		cout << "---------------------------------------------------------------------------------" << endl;
-		cout << "í˜„ì¬ tv ìƒíƒœëŠ” ë‹¤ìŒê³¼ ê°™ìŠµë‹ˆë‹¤." << endl;
+		cout << "ÇöÀç tv »óÅÂ´Â ´ÙÀ½°ú °°½À´Ï´Ù." << endl;
 		tv.showCompany();
 		tv.showPower();
 		tv.showVolume();
 		tv.showChannel();
 		string status;
-		cout << "ì¢…ë£Œí•˜ë ¤ë©´ exit, ê³„ì† í•˜ë ¤ë©´ ì•„ë¬´ê±°ë‚˜ ì…ë ¥í•˜ì„¸ìš”" << endl;
+		cout << "Á¾·áÇÏ·Á¸é exit, °è¼Ó ÇÏ·Á¸é ¾Æ¹«°Å³ª ÀÔ·ÂÇÏ¼¼¿ä" << endl;
 		cin >> status;
 		if (status == "exit") break;
 	}

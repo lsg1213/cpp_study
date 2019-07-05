@@ -4,3 +4,4 @@
 **/*.filters
 **/*.user
 **/Debug
+**/.vs

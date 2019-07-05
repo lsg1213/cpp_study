@@ -8,25 +8,23 @@ int main(){
 		
 	int (&ptr_arr)[3] = arr1;
 	ptr_arr[1] = 10;
-	cout << ptr_arr[1] << endl;		
 
 	int &row1 = arr1[0];
 	int *ptr_row1 = &arr1[0];
-	cout << "ptr_row1 : " << *ptr_row1 <<endl;
-	cout << "arr1[0]: " << row1<< endl;
 	
 	
 	int (&row)[3] = arr[0];
 	int &col = row[1];
 	
+	// 아래 결과가 어떻게 다르게 출력될지 예상 
 	for(int (*row)[3] = &arr[0]; row < arr +2; row++){
 		cout << row+1 << endl;
 		cout << *row+1 << endl;
 	}
-
+	// 각각 빈 공간에 잘 채워넣어서 2차원 배열 출력
 	for(int (*row)[3] = &arr[0]; row < arr+2; row++){ // row = &arr[0]
 		for(int *col = ;   <  +3; ++){
-			cout << *col << " ";
+			cout <<  << " ";
 		}
 		cout << endl; 	
 	}

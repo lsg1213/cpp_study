@@ -1,7 +1,7 @@
 #include <iostream>
 
 using namespace std;
-// º¹¼Ò¼öÀÇ µ¡¼À, °ö¼À, ³ª´°¼À, »¬¼À ±¸Çö
+// º¹¼Ò¼öÀÇ µ¡¼À, °ö¼À, ³ª´°¼À, »¬¼À ±¸Çö( 1~3¹ø ¹®Á¦ )
 class Complex {
 	double real;
 	double imag;

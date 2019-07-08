@@ -16,12 +16,12 @@ int main(){
 	int (&row)[3] = arr[0];
 	int &col = row[1];
 	
-	// ì•„ë˜ ê²°ê³¼ê°€ ì–´ë–»ê²Œ ë‹¤ë¥´ê²Œ ì¶œë ¥ë ì§€ ì˜ˆìƒ 
+	// ¾Æ·¡ °á°ú°¡ ¾î¶»°Ô ´Ù¸£°Ô Ãâ·ÂµÉÁö ¿¹»ó 
 	for(int (*row)[3] = &arr[0]; row < arr +2; row++){
 		cout << row+1 << endl;
 		cout << *row+1 << endl;
 	}
-	// ê°ê° ë¹ˆ ê³µê°„ì— ì˜ ì±„ì›Œë„£ì–´ì„œ 2ì°¨ì› ë°°ì—´ ì¶œë ¥
+	// °¢°¢ ºó °ø°£¿¡ Àß Ã¤¿ö³Ö¾î¼­ 2Â÷¿ø ¹è¿­ Ãâ·Â
 	for(int (*row)[3] = &arr[0]; row < arr+2; row++){ // row = &arr[0]
 		for(int *col = ;   <  +3; ++){
 			cout <<  << " ";
@@ -36,7 +36,7 @@ int main(){
 
 	cout << col << endl;
 	cout << row[1]<< endl;
-    cout << arr[0] << endl;  // arr1 == arr[0] ì£¼ì†Œê°€ ë“¤ì–´ìˆë„¤.
+    cout << arr[0] << endl;  // arr1 == arr[0] ÁÖ¼Ò°¡ µé¾îÀÖ³×.
 
 	cout << arr[0][0] << endl;
 	

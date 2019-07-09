@@ -3,6 +3,7 @@
 아래의 코드가 정상적으로 수행되도록 생성자의 정의를 수정하세요.
 
 출력 결과 :	0 0
+			3 0
 			2 3
 */
 
@@ -35,8 +36,11 @@ int main(void)
 	SimpleClass sc1;
 	sc1.Show();
 
-	SimpleClass sc2(2, 3);
+	SimpleClass sc2(3);
 	sc2.Show();
+
+	SimpleClass sc3(2, 3);
+	sc3.Show();
 
 	return 0;
 }

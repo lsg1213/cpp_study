@@ -12,10 +12,12 @@ class MyClass{
 	void PrintThis(){
 		cout << this << endl;
 	}
-}
+};
 
 int main(){
-	MyClass a,b;
+	MyClass a;
 
 	a.PrintThis();
+
+	return 0;
 }

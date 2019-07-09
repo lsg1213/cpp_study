@@ -21,6 +21,7 @@ int main(){
 		cout << row+1 << endl;
 		cout << *row+1 << endl;
 	}
+
 	// 각각 빈 공간에 잘 채워넣어서 2차원 배열 출력
 	for(int (*row)[3] = &arr[0]; row < arr+2; row++){ // row = &arr[0]
 		for(int *col = ;   <  +3; ++){
@@ -28,9 +29,6 @@ int main(){
 		}
 		cout << endl; 	
 	}
-
-	
-	
 
 
 

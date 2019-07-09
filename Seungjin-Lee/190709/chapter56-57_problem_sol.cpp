@@ -1,12 +1,13 @@
 #include <iostream>
 
 using namespace std;
-// ���Ҽ��� ����, ����, ������, ���� ����
+// 복소수의 덧셈, 곱셈, 나눗셈, 뺄셈 구현( 1~3번 문제 )
 class Complex {
 	double real;
 	double imag;
 public:
-	Complex(double real = 0, double imag = 0) : real(real), imag(imag) {	}
+	// 1. 한 줄에 생성자 구현(입력 수정x)
+	Complex(double real = 0, double imag = 0) : real(real), imag(imag) { }
 
 	double GetReal() {
 		return real;
@@ -15,11 +16,11 @@ public:
 		return imag;
 	}
 
+	// 2. switch문을 이용하여 사칙연산 구현
+	// 0으로 나누는 경우는 입력으로 없다.(main 함수에서 걸러서 들어옴)
 	void calculate(double _real, double _imag, char oper) {
-		double tmp_real = real;
-		double tmp_imag = imag;
-		switch (oper)
-		{
+		double real_result, imag_result;
+		switch (oper) {
 		case '+':
 			real += _real;
 			imag += _imag;
@@ -29,34 +30,27 @@ public:
 			imag -= _imag;
 			break;
 		case '*':
-			real = real * _real - imag * _imag;
-			imag = tmp_real * _imag + imag * _real;
+			real_result = real * _real - imag * _imag;
+			imag_result = real * _imag + imag * _real;
+			real = real_result;
+			imag = imag_result;
 			break;
-
-		default:
-			if (_real == 0) {
-				real = imag / _imag;
-				imag = -(real / imag);
-			}
-			else if (_imag == 0) {
-				real /= _real;
-				imag /= _real;
-			}
-			else {
-				calculate(_real, -_imag, '*');
-				calculate(tmp_real*tmp_real + tmp_imag * tmp_imag, 0, '/');
-			}
+		case '/':
+			real_result = (real*_real + imag * _imag) / (_real*_real + _imag * _imag);
+			imag_result = (-real * _imag + imag * _real) / (_real*_real + _imag * _imag);
+			real = real_result;
+			imag = imag_result;
 			break;
 		}
 	}
-
+	// 3. "All is over"을 출력하는 소멸자 구현
 	~Complex() {
 		cout << "All is over" << endl;
 	}
 };
 
 int main() {
-	
+
 	while (true) {
 		cout << "-----------------------------------------------------" << endl;
 		cout << "Calculator is operating" << endl;

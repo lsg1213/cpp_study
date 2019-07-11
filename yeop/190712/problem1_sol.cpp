@@ -14,9 +14,9 @@ int main(){
 	cout << *ptr << endl;
 	
 	// fill the below
+	const_cast<int&>(ref) = 1;
+	*(const_cast<int*>(ptr)) = 1;
 	
-
-
 	// print : 1
 	cout << ref << endl;
 	cout << *ptr << endl;

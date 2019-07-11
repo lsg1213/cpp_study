@@ -19,7 +19,7 @@ public:
 	int GetData_a() const{
 
 		// make possible to change variabe a to 20
-		
+		const_cast<int &>(a) = 20;			
 		return a;
 	}
 

@@ -14,7 +14,9 @@ public:
     {	
 		
 		// you just change here !
-       const_cast <student*> (this) -> roll = 5; 
+		const_cast<int &>(s->roll) = 5;
+
+
     } 
   
     int getRoll()  { return roll; } 

@@ -4,12 +4,13 @@ using namespace std;
 
 class Score {
 private:
-	int Eng;
+	float Eng;
 
 public:
 	Score() : Eng(0) {}
-	Score(int Eng) : Eng(Eng) {}
-
+	Score(float Eng) : Eng(Eng) {}
+	
+	float getGrade(){return Eng;}
 	static Score AVG(Score a, Score b) {
 		return Score((a.Eng + b.Eng) / 2);
 	}
@@ -17,9 +18,9 @@ public:
 
 int main() {
 	Score a(60);
-	Score b(70);
+	Score b(60);
 
 	Score avg = Score::AVG(a, b);
 
-	cout << "ЦђБе : " << avg.AVG;
+	cout << "ЦђБе : " << avg.getGrade();
 }

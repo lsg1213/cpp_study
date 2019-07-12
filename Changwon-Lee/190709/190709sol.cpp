@@ -40,6 +40,10 @@ int main(){
 	
 	//해설을 위한 값
 	
+	cout << p << endl;
+	cout << p+4 << endl;
+	
+	
 	printf("%d\n", p);
 	printf("%d\n", p+4);
 	

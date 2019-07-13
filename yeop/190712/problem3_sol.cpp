@@ -15,6 +15,18 @@ public:
 		
 		// you just change here !
        (const_cast<int&>( const_cast <student*> (this) -> roll)) = 5; 
+
+	   /* sol2
+		student *s = const_cast<student *>(this);
+		const_cast<int &>(s->roll) = 5;
+
+		sol3
+		student *s = const_cast<student *>(this);
+		int *b = (int *)a;
+		*b = 5;
+
+	   */
+
     } 
   
     int getRoll()  { return roll; } 

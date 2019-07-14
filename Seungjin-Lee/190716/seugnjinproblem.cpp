@@ -46,12 +46,6 @@ matrix2 matrix2::operator*(matrix2 rhs) {
 	//"", num[0][0] * rhs.num[0][0] + num[0][1] * rhs.num[1][0], num[0][0] * rhs.num[0][1] + num[0][1] * rhs.num[1][1],
 	//	num[1][0] * rhs.num[0][0] + num[1][1] * rhs.num[1][0], num[1][0] * rhs.num[0][1] + num[1][1] * rhs.num[1][1]
 }
-matrix2 matrix2::operator+(matrix2 rhs) {
-	
-}
-matrix2 matrix2::operator-(matrix2 rhs) {
-}
-
 
 matrix2::matrix2(string name) : name(name){
 	num = new(double*[2]);

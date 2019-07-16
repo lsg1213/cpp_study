@@ -21,17 +21,16 @@ public:
 	 *   MyString *s4 = new MyString("Hello");  <- dynamic allocation
 	 * */
 	MyString(const char *str) {
-		int size = 0;
 		// Your code 1
+		int size = 0;
 		for (int i = 0; str[i] != '\0'; i++) {
 			size++;
 		}
-		length = size;
 		ptrStr = new(char[size + 1]);
-		for (int i = 0; i < size; i++) {
+		for (int i = 0; i <= size; i++) {
 			ptrStr[i] = str[i];
 		}
-		ptrStr[size + 1] = '\0';
+		length = size;
 	};
 
 	/* *
@@ -78,7 +77,6 @@ public:
 	char& operator[] (int index) {
 
 		// Your code 2
-
 		return ptrStr[index];
 	};
 
@@ -116,18 +114,18 @@ public:
 	 *    ( s2 == "HIHIHIHI" )
 	 * */
 	MyString& operator* (int num) {
-
+		MyString *kk = new MyString("");
 		// Your code 3
 		char * k = new(char[length * num + 1]);
 		for (int i = 0; i < num; i++) {
 			for (int j = 0; j < length; j++) {
-				k[i + j] = ptrStr[j];
+				k[i * length + j] = ptrStr[j];
 			}
 		}
 		k[length*num] = '\0';
-		MyString kk(k);
-
-		return kk;
+		kk->ptrStr = k;
+		kk->length = length * num;
+		return *kk;
 	};
 };
 

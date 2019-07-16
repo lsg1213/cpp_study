@@ -25,7 +25,6 @@ public:
 		return Op(x.a + y.a, x.b + y.b, x.c + y.c);
 	}
 
-
 private:
 	int a;
 	int b;

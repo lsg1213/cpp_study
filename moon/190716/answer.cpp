@@ -7,6 +7,8 @@ using namespace std;
 
 class MyString {
 private:
+    static int cnt;
+    int id;
     char *ptrStr;
     size_t length;
 
@@ -20,7 +22,7 @@ public:
      *   MyString s3 = "Hello";
      *   MyString *s4 = new MyString("Hello");  <- dynamic allocation
      * */
-    MyString (const char *str) {
+    MyString (const char *str) : id(cnt++) {
         size_t size = 0;
         while (str[size++] != '\0') {}
 
@@ -30,6 +32,10 @@ public:
         }
 
         length = size - 1;
+
+        // For logging
+        cout << "Normal Constructor is called. ";
+        cout << "\"" << ptrStr << "\" is created! (ID: " << id << ")" << endl;
     };
 
     /* *
@@ -40,18 +46,26 @@ public:
      *   MyString s2(s1);
      *   ( s2 == "Hello" )
      * */
-    MyString (const MyString &myString) {
+    MyString (const MyString &myString) : id(cnt++) {
         length = myString.length;
         ptrStr = new char[length + 1];
 
         for (int i = 0; i < length + 1; i++) {
             ptrStr[i] = myString.ptrStr[i];
         }
+
+        // For logging
+        cout << "Copy Constructor is called. ";
+        cout << "\"" << ptrStr << "\" is created! (ID: " << id << ")" << endl;
     }
 
     // Destructor
     ~MyString() {
         delete[] ptrStr;
+
+        // For logging
+        cout << "Destructor is called. ";
+        cout << "\"" << ptrStr << "\" is deleted! (ID: " << id << ")" << endl;
     }
 
     /* *
@@ -80,27 +94,27 @@ public:
     /* *
      *  Implementation of string concantenation.
      * */
-    MyString& operator+ (MyString str) {
-        MyString *newStr = new MyString("");
-        
-        newStr->length = length + str.length;
-        newStr->ptrStr = new char[newStr->length + 1];
+    MyString operator+ (const MyString& str) {
+        char *newStr = new char[length + str.length + 1];
         
         size_t i = 0;
         size_t j = 0;
 
         while(ptrStr[i] != '\0') {
-            newStr->ptrStr[i + j] = ptrStr[i];
+            newStr[i + j] = ptrStr[i];
             i++;
         }
 
         while (str.ptrStr[j] != '\0') {
-            newStr->ptrStr[i + j] = str.ptrStr[j];
+            newStr[i + j] = str.ptrStr[j];
             j++;
         }
+        newStr[i + j] = '\0';
 
-        newStr->ptrStr[i + j] = '\0';
-        return *newStr;
+        MyString newMyString(newStr);
+        delete[] newStr;
+
+        return newMyString;
     };
 
     /* *
@@ -110,26 +124,28 @@ public:
      *    MyString s2 = s1 * 4;
      *    ( s2 == "HIHIHIHI" )
      * */
-    MyString& operator* (int num) {
-        MyString *newStr = new MyString("");
-
-        newStr->length = length * num;
-        newStr->ptrStr = new char[newStr->length + 1];
+    MyString operator* (int num) {
+        char *newStr = new char[length*num + 1];
 
         for (int i = 0; i < num; i++) {
             for (size_t j = 0; j < length; j++) {
-                newStr->ptrStr[i*length + j] = ptrStr[j];
+                newStr[i*length + j] = ptrStr[j];
             }
         }
-        newStr->ptrStr[length*num + 1] = '\0';
-        return *newStr;
+        newStr[length*num + 1] = '\0';
+
+        MyString newMyString(newStr);
+        delete[] newStr;
+
+        return newMyString;
     };
 };
+int MyString::cnt = 0;
 
 /* *
  * Overload the operator "<<" to use statment like 'cout << myString'.
  * */
-ostream& operator<< (ostream &os, const MyString myString) {
+ostream& operator<< (ostream &os, const MyString& myString) {
     cout << myString.to_char();
     return os;
 }

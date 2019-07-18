@@ -6,6 +6,9 @@
 using namespace std;
 
 class MyString {
+
+friend ostream& operator<< (ostream &os, const MyString& myString);
+
 private:
     static int cnt;
     int id;
@@ -66,17 +69,6 @@ public:
         // For logging
         cout << "Destructor is called. ";
         cout << "\"" << ptrStr << "\" is deleted! (ID: " << id << ")" << endl;
-    }
-
-    /* *
-     * This method creates a new array of characters and return its address.
-     * */
-    char *to_char() const {
-        char *new_chars = new char[length + 1];
-        for (size_t i = 0; i < length+1; i++) {
-            new_chars[i] = ptrStr[i];
-        }
-        return new_chars;
     }
 
     /* * 
@@ -140,13 +132,13 @@ public:
         return newMyString;
     };
 };
-int MyString::cnt = 0;
+int MyString::cnt = 1;
 
 /* *
  * Overload the operator "<<" to use statment like 'cout << myString'.
  * */
 ostream& operator<< (ostream &os, const MyString& myString) {
-    cout << myString.to_char();
+    cout << myString.ptrStr;
     return os;
 }
 

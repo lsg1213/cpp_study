@@ -91,7 +91,7 @@ public:
     /* *
      *  Implementation of string concantenation.
      * */
-    MyString& operator+ (MyString str) {
+    MyString& operator+ (MyString &str) {
         MyString *newStr = new MyString("");
         
         newStr->length = length + str.length;

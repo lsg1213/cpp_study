@@ -1,13 +1,18 @@
 /*
 저번시간에 만들었던 MyString class를 upgrade해보자.
 
-이번에는 insert함수를 만들어 보자.
+#1 이번에는 insert함수를 만들어 보자.
 
 a = "string"
 a.insert(2,"<wow>"); // insert의 변수는 MyString& 으로 받으면, 복사 생성자에 의해서 char* 를 대입해줘도 잘 작동이 된다. 
 를 실행하면 index가 인 곳에 wow가 삽입된다.
 
 정답 예시 : st<wow>ring
+
+#2 strcmp를 구현해 보자.
+두개의 스트링이 동일하면 0 반환
+앞의 글자가 빠르면 1 반환
+뒤에 스트링이 빠르면 -1를 반환한다.
 
 */
 
@@ -100,22 +105,7 @@ public:
 	}
 
 	int strcmp(const MyString &str1, const MyString &str2){
-		
-		int i = 0;
-		if( str1.string_len == str2.string_len){
-		
-		while(str1.string_con[i] != '\0' &&  str2.string_con[i] != '\0'){
-			if(str1.string_con[i] != str2.string_con[i]){ 
-			if(str1.string_con[i] < str2.string_con[i])
-				return 1;
-			else 
-				return -1;
-			}
-			i++;
-		}
-		if(i == str1.string_len)
-			return 0;
-		}
+		// strcmp 구현 	
 	}
 	
 	// 문자가 있으면 그 위치 반환, 없으면 -1반환

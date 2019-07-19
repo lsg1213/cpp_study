@@ -8,6 +8,7 @@ int main()
 	int **mat;
 
 	mat = new int*[row];
+
 	for(int i = 0; i < row; i++){
 		mat[i] = new int[col];
 	}
@@ -36,3 +37,4 @@ int main()
 	}
 	delete mat;
 }
+

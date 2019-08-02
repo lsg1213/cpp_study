@@ -2,7 +2,7 @@
 
 int main(void){
 	FILE *in, *out; 
-	int n;
+	unsigned char n;
 	
 	in = fopen("input.txt", "r"); 
 	out = fopen("output.txt", "a+");
